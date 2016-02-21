@@ -25,7 +25,7 @@ class TwitterClient: BDBOAuth1SessionManager {
         return Static.instance
     }
     
-    func homeTimelineWithCompletion(params: NSDictionary?, completion: (tweets: [Tweet]?, error: NSError?) -> ()) {
+    func homeTimelineWithParams(params: NSDictionary?, completion: (tweets: [Tweet]?, error: NSError?) -> ()) {
         GET("1.1/statuses/home_timeline.json",
             parameters: nil,
             progress: { (progress: NSProgress) -> Void in },

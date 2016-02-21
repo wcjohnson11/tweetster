@@ -35,17 +35,26 @@
             </objects>
             <point key="canvasLocation" x="162.66666666666666" y="406.59333333333331"/>
         </scene>
-        <!--View Controller-->
+        <!--TweetsViewController-->
         <scene sceneID="Dbl-LS-TOu">
             <objects>
-                <viewController id="xCS-c1-5ZG" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TweetsViewController" title="TweetsViewController" id="xCS-c1-5ZG" customClass="TweetsViewController" customModule="Tweetster" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ojc-OQ-ifK"/>
                         <viewControllerLayoutGuide type="bottom" id="NJb-F2-3Ut"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="fsd-aP-q4k">
+                    <view key="view" contentMode="scaleToFill" id="fsd-aP-q4k" customClass="Tweets">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p4J-Gz-7p4">
+                                <rect key="frame" x="136" y="155" width="48" height="30"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="onLogout:" destination="xCS-c1-5ZG" eventType="touchUpInside" id="omj-3t-Pgc"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
