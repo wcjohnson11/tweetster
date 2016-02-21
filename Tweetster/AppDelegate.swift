@@ -23,8 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // go to logged in screen
             print("User persisted \(User.currentUser!.name)")
             
-            let vc = storyboard.instantiateViewControllerWithIdentifier("TweetsViewController") as UIViewController
+            let vc = storyboard.instantiateViewControllerWithIdentifier("NavigationViewController") as UIViewController
             window?.rootViewController = vc
+            
+//            navController = UINavigationController()
+//            var viewController: ViewController = ViewController()
+//            self.navController!.pushViewController(viewController, animated: false)
         }
         
         return true
