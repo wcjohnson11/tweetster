@@ -8,17 +8,19 @@
 
 import UIKit
 
-class TweetsViewController: UIViewController {
+class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    
+    @IBOutlet weak var tableView: UITableView!
     var tweets: [Tweet]?
+    var refreshControl: UIRefreshControl?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        TwitterClient.sharedInstance.homeTimelineWithParams(nil) { (tweets, error) -> () in
-            self.tweets = tweets
-        }
+        tableView.dataSource = self
+        setupRows()
+        getTweets()
+        addRefreshControl()
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,6 +30,44 @@ class TweetsViewController: UIViewController {
     
     @IBAction func onLogout(sender: AnyObject) {
         User.currentUser?.logout()
+    }
+    
+    func getTweets(refreshControl: UIRefreshControl? = nil) {
+        TwitterClient.sharedInstance.homeTimelineWithParams(nil) { (tweets, error) -> () in
+            self.tweets = tweets
+            self.tableView.reloadData()
+            if let refreshControl = refreshControl {
+                refreshControl.endRefreshing()
+            }
+        }
+    }
+    
+    func setupRows() {
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableViewAutomaticDimension
+    }
+    
+    func addRefreshControl() {
+        refreshControl = UIRefreshControl()
+        refreshControl!.addTarget(self, action: "refreshCallback:", forControlEvents: .ValueChanged)
+        tableView.insertSubview(refreshControl!, atIndex: 0)
+    }
+    
+    func refreshCallback(refreshControl: UIRefreshControl) {
+        getTweets(refreshControl)
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tweets?.count ?? 0
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("TweetCell") as! TweetCell
+        if let tweets = tweets {
+            let tweet = tweets[indexPath.row]
+            cell.fullNameLabel.text = (tweet.user?.name)! as String
+        }
+        return cell
     }
 
     /*
