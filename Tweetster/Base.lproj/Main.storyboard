@@ -43,21 +43,71 @@
                         <viewControllerLayoutGuide type="top" id="Ojc-OQ-ifK"/>
                         <viewControllerLayoutGuide type="bottom" id="NJb-F2-3Ut"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="fsd-aP-q4k" customClass="Tweets">
+                    <view key="view" contentMode="scaleToFill" id="fsd-aP-q4k">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Bwj-dU-KXh">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="87" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Bwj-dU-KXh">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="87" id="jye-cL-W58" customClass="TweetCell" customModule="Tweetster" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="320" height="87"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jye-cL-W58" id="Brq-Lw-YVV">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ghc-01-YtC">
+                                                    <rect key="frame" x="8" y="8" width="64" height="64"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Will Johnson" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wXA-zM-S5B">
+                                                    <rect key="frame" x="80" y="8" width="98" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="@willpickle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eFG-Re-qxz">
+                                                    <rect key="frame" x="186" y="13" width="61" height="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My tweet that got 500 likes and 500 retweets" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDp-Qm-1bk">
+                                                    <rect key="frame" x="80" y="29" width="232" height="43"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="4/20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQf-X8-Jtb">
+                                                    <rect key="frame" x="245" y="13" width="61" height="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="fullNameLabel" destination="wXA-zM-S5B" id="U6p-uN-4Te"/>
+                                            <outlet property="handleLabel" destination="eFG-Re-qxz" id="Dum-5X-2VD"/>
+                                            <outlet property="thumbImage" destination="Ghc-01-YtC" id="6tX-wE-Xms"/>
+                                            <outlet property="timestampLabel" destination="RQf-X8-Jtb" id="SZX-iN-1Ck"/>
+                                            <outlet property="tweetTextLabel" destination="mDp-Qm-1bk" id="4hm-4r-SaP"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Bwj-dU-KXh" secondAttribute="trailing" id="5ac-IB-lMU"/>
-                            <constraint firstItem="Bwj-dU-KXh" firstAttribute="top" secondItem="Ojc-OQ-ifK" secondAttribute="bottom" id="64h-HC-uH8"/>
+                            <constraint firstItem="Bwj-dU-KXh" firstAttribute="top" secondItem="fsd-aP-q4k" secondAttribute="top" id="In7-OL-m7t"/>
+                            <constraint firstItem="NJb-F2-3Ut" firstAttribute="top" secondItem="Bwj-dU-KXh" secondAttribute="bottom" id="Jem-Dj-DTP"/>
+                            <constraint firstItem="Bwj-dU-KXh" firstAttribute="leading" secondItem="fsd-aP-q4k" secondAttribute="leading" id="LIG-Wc-t7c"/>
                             <constraint firstItem="Bwj-dU-KXh" firstAttribute="leading" secondItem="fsd-aP-q4k" secondAttribute="leading" id="W48-Fb-YVz"/>
                             <constraint firstItem="NJb-F2-3Ut" firstAttribute="top" secondItem="Bwj-dU-KXh" secondAttribute="bottom" id="Xc8-af-2vM"/>
+                            <constraint firstItem="Bwj-dU-KXh" firstAttribute="top" secondItem="fsd-aP-q4k" secondAttribute="top" id="fjh-yb-rej"/>
+                            <constraint firstAttribute="trailing" secondItem="Bwj-dU-KXh" secondAttribute="trailing" id="wfg-YD-pfg"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="AOB-Ux-JI4">
