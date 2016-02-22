@@ -36,6 +36,33 @@ class DetailsViewController: UIViewController {
             vc.tweetReplyUsername = tweet.user?.screenName
         }
     }
+ 
+    
+    @IBAction func retweetTouched(sender: AnyObject) {
+        tweet!.retweetedCount = tweet!.retweetedCount! + 1
+        TwitterClient.sharedInstance.retweetWithCompletion(tweet!.id!) { (retweet, error) -> () in
+            if let _ = retweet {
+                print("retweeted")
+            } else {
+                print(error)
+            }
+        }
+    }
+    
+
+    @IBAction func heartTouched(sender: AnyObject) {
+        tweet!.heartedCount = tweet!.heartedCount! + 1
+        TwitterClient.sharedInstance.favoriteWithCompletion(tweet!.id!) { (heartTweet, error) -> () in
+            if let _ = heartTweet {
+                print("hearted")
+            } else {
+                print(error)
+            }
+
+        }
+    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,8 +71,8 @@ class DetailsViewController: UIViewController {
         handleLabel.text = tweet?.user?.screenName
         tweetTextLabel.text = tweet?.text
         tweetTimestampLabel.text = tweet?.createdAtString
-        retweetCountLabel.text = String(tweet?.retweetedCount)
-        heartLabel.text = String(tweet?.heartedCount)
+        retweetCountLabel.text = String(tweet?.retweetedCount!)
+        heartLabel.text = String(tweet?.heartedCount!)
 
         // Do any additional setup after loading the view.
     }
