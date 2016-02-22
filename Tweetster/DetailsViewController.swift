@@ -39,6 +39,13 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        thumbImage.setImageWithURL(NSURL(string: (tweet?.user?.profileImageUrl)!)!)
+        fullNameLabel.text = tweet?.user?.name
+        handleLabel.text = tweet?.user?.screenName
+        tweetTextLabel.text = tweet?.text
+        tweetTimestampLabel.text = tweet?.createdAtString
+        retweetCountLabel.text = String(tweet?.retweetedCount)
+        heartLabel.text = String(tweet?.heartedCount)
 
         // Do any additional setup after loading the view.
     }
