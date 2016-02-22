@@ -14,23 +14,17 @@ PODS:
   - AFNetworking/Serialization (3.0.4)
   - AFNetworking/UIKit (3.0.4):
     - AFNetworking/NSURLSession
-  - Alamofire (3.2.0)
-  - AlamofireImage (2.3.1):
-    - Alamofire (~> 3.1)
   - BDBOAuth1Manager (2.0.0):
     - AFNetworking/NSURLSession (~> 3.0.0)
   - TimeAgoInWords (2.0.0)
 
 DEPENDENCIES:
   - AFNetworking
-  - AlamofireImage
   - BDBOAuth1Manager
   - TimeAgoInWords
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
-  Alamofire: 4da478599fccddff361205c8929333d7fe18dceb
-  AlamofireImage: 8256f88835f58257a76ea2738d3773be5057f7ed
   BDBOAuth1Manager: 92d17d06f8a648602962304cd2f35ae7394fa001
   TimeAgoInWords: be1144596814c8de5d2fe51a60977ec98115e4fb
 
