@@ -71,8 +71,8 @@ class DetailsViewController: UIViewController {
         handleLabel.text = tweet?.user?.screenName
         tweetTextLabel.text = tweet?.text
         tweetTimestampLabel.text = tweet?.createdAtString
-        retweetCountLabel.text = String(tweet?.retweetedCount!)
-        heartLabel.text = String(tweet?.heartedCount!)
+        retweetCountLabel.text = String(tweet!.retweetedCount!)
+        heartLabel.text = String(tweet!.heartedCount!)
 
         // Do any additional setup after loading the view.
     }
