@@ -17,6 +17,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
         tableView.dataSource = self
         setupRows()
         getTweets()
@@ -43,8 +44,8 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func setupRows() {
-        tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 100
     }
     
     func addRefreshControl() {
@@ -71,6 +72,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.tweetTextLabel.text = (tweet.text)! as String
             cell.retweetCount.text = String(tweet.retweetedCount) as String
             cell.heartCount.text = String(tweet.heartedCount) as String
+            cell.thumbImage.setImageWithURL(NSURL(string: (tweet.user?.profileImageUrl)!)!)
         }
         return cell
     }
