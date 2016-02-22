@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TimeAgoInWords
 
 class Tweet: NSObject {
     var user: User?
@@ -19,7 +20,7 @@ class Tweet: NSObject {
     var retweetedCount: Int?
     var hearted: Bool?
     var heartedCount: Int?
-    var timeAgo: Int?
+    var timeAgo: String?
     
     init(dictionary: NSDictionary) {
         user = User(dictionary: dictionary["user"] as! NSDictionary)
@@ -31,10 +32,11 @@ class Tweet: NSObject {
         retweetedCount = dictionary["retweet_count"] as? Int ?? 0
         hearted = dictionary["favorited"] as? Bool ?? false
         heartedCount = dictionary["favorites_count"] as? Int ?? 0
-        
+    
         let formatter = NSDateFormatter()
         formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
         createdAt = formatter.dateFromString(createdAtString!)
+        timeAgo = createdAt!.timeAgoInWords()
     }
     
     class func tweetsWithArray(array: [NSDictionary]) -> [Tweet] {

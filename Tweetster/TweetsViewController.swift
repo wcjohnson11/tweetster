@@ -67,7 +67,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let tweet = tweets[indexPath.row]
             cell.fullNameLabel.text = (tweet.user?.name)! as String
             cell.handleLabel.text = (tweet.user?.screenName)! as String
-            cell.timestampLabel.text = (tweet.createdAtString)! as String
+            cell.timestampLabel.text = (tweet.timeAgo)! as String
             cell.tweetTextLabel.text = (tweet.text)! as String
             cell.retweetCount.text = String(tweet.retweetedCount) as String
             cell.heartCount.text = String(tweet.heartedCount) as String

@@ -19,10 +19,20 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>TimeAgoInWords.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>1C3436CEA5C3D39764C5F54374794ECB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1CC42C050CE56C7ADAA27BD6F684CA9C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -32,7 +42,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9E7C9DB3783EE7DA460E006858861366</key>
+		<key>4B89D1A6D19352F0CCE1EB9E9A7A4D8B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
