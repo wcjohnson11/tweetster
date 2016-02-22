@@ -22,6 +22,21 @@ class ComposeTweetViewController: UIViewController {
     @IBAction func backButtonTouched(sender: AnyObject) {
         navigationController?.popViewControllerAnimated(true)
     }
+    
+    @IBAction func composeTweet(sender: AnyObject) {
+        let params: NSMutableDictionary = (dictionary: ["status": tweetTextLabel.text])
+        if let tweetReplyId = tweetReplyId {
+            params.setValue(tweetReplyId, forKey: "in_reply_to_status_id")
+        }
+        
+        TwitterClient.sharedInstance.createTweetWithCompletion(params) { (tweet, error) -> () in
+            self.navigationController?.popViewControllerAnimated(true)
+            if error != nil {
+                print(error?.description)	
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let user = User.currentUser
