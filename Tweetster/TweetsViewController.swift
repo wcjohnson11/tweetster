@@ -70,9 +70,12 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.handleLabel.text = (tweet.user?.screenName)! as String
             cell.timestampLabel.text = (tweet.timeAgo)! as String
             cell.tweetTextLabel.text = (tweet.text)! as String
-            cell.retweetCount.text = String(tweet.retweetedCount) as String
-            cell.heartCount.text = String(tweet.heartedCount) as String
+            cell.retweetCount.text = String(tweet.retweetedCount!) as String
+            cell.heartCount.text = String(tweet.heartedCount!) as String
             cell.thumbImage.setImageWithURL(NSURL(string: (tweet.user?.profileImageUrl)!)!)
+            cell.replyImage.image = UIImage(named: "reply")
+            cell.retweetImage.image = UIImage(named: "retweet")
+            cell.heartImage.image = UIImage(named: "heart")
         }
         return cell
     }
