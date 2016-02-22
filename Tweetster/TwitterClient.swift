@@ -77,4 +77,74 @@ class TwitterClient: BDBOAuth1SessionManager {
             }
         )
     }
+    
+    func createTweetWithCompletion(params: NSDictionary, completion: (tweet: Tweet?, error: NSError?) -> ()) {
+        POST("1.1/statuses/update.json",
+            parameters: params,
+            progress: { (progress: NSProgress) -> Void in },
+            success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                let tweet = Tweet(dictionary: response as! NSDictionary)
+                completion(tweet: tweet, error: nil)
+            },
+            failure: { (operation: NSURLSessionDataTask?, error: NSError!) -> Void in
+                print("error creating tweet")
+                completion(tweet: nil, error: error)
+        })
+    }
+    
+    func retweetWithCompletion(id: Int, completion: (tweet: Tweet?, error: NSError?) -> ()) {
+        POST("1.1/statuses/retweet/\(id).json",
+            parameters: nil,
+            progress: { (progress: NSProgress) -> Void in },
+            success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                let tweet = Tweet(dictionary: response as! NSDictionary)
+                completion(tweet: tweet, error: nil)
+            },
+            failure: { (operation: NSURLSessionDataTask?, error: NSError!) -> Void in
+                print("error retweeting")
+                completion(tweet: nil, error: error)
+        })
+    }
+    
+    func unretweetWithCompletion(id: Int, completion: (tweet: Tweet?, error: NSError?) -> ()) {
+        POST("1.1/statuses/unretweet/\(id).json",
+            parameters: nil,
+            progress: { (progress: NSProgress) -> Void in },
+            success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                let tweet = Tweet(dictionary: response as! NSDictionary)
+                completion(tweet: tweet, error: nil)
+            },
+            failure: { (operation: NSURLSessionDataTask?, error: NSError!) -> Void in
+                print("error un-retweeting")
+                completion(tweet: nil, error: error)
+        })
+    }
+    
+    func favoriteWithCompletion(id: Int?, completion: (tweet: Tweet?, error: NSError?) -> ()) {
+        POST("1.1/favorites/create.json",
+            parameters: NSDictionary(dictionary: ["id": id!]),
+            progress: { (progress: NSProgress) -> Void in },
+            success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                let tweet = Tweet(dictionary: response as! NSDictionary)
+                completion(tweet: tweet, error: nil)
+            },
+            failure: { (operation: NSURLSessionDataTask?, error: NSError!) -> Void in
+                print("error favoriting")
+                completion(tweet: nil, error: error)
+        })
+    }
+    
+    func unfavoriteWithCompletion(id: Int?, completion: (tweet: Tweet?, error: NSError?) -> ()) {
+        POST("1.1/favorites/destroy.json",
+            parameters: NSDictionary(dictionary: ["id": id!]),
+            progress: { (progress: NSProgress) -> Void in },
+            success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                let tweet = Tweet(dictionary: response as! NSDictionary)
+                completion(tweet: tweet, error: nil)
+            },
+            failure: { (operation: NSURLSessionDataTask?, error: NSError!) -> Void in
+                print("error unfavoriting")
+                completion(tweet: nil, error: error)
+        })
+    }
 }

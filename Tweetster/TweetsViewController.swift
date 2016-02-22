@@ -89,5 +89,16 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Pass the selected object to the new view controller.
     }
     */
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
+        var indexPath: NSIndexPath? = nil
+        if let cell = sender as? TweetCell {
+           indexPath = tableView.indexPathForCell(cell)
+            let tweet = tweets![indexPath!.row]
+            let detailsViewController = segue.destinationViewController as! DetailsViewController
+            self.tableView.deselectRowAtIndexPath(indexPath!, animated: true)
+            detailsViewController.tweet = tweet
+
+        }
+    }
 
 }
