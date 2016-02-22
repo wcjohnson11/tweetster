@@ -58,7 +58,6 @@ class DetailsViewController: UIViewController {
             } else {
                 print(error)
             }
-
         }
     }
     
@@ -73,8 +72,8 @@ class DetailsViewController: UIViewController {
         tweetTimestampLabel.text = tweet?.createdAtString
         retweetCountLabel.text = String(tweet!.retweetedCount!)
         heartLabel.text = String(tweet!.heartedCount!)
-
-        // Do any additional setup after loading the view.
+        thumbImage.layer.cornerRadius = 3
+        thumbImage.clipsToBounds = true
     }
 
     override func didReceiveMemoryWarning() {

@@ -9,9 +9,8 @@
 import UIKit
 
 class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    
     @IBOutlet weak var tableView: UITableView!
+    
     var tweets: [Tweet]?
     var refreshControl: UIRefreshControl?
 
@@ -23,14 +22,31 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         getTweets()
         addRefreshControl()
     }
+    
+    func replyTapped(gestureRecognizer: UITapGestureRecognizer) {
+
+    }
+    
+    func likeTapped(gestureRecognizer: UITapGestureRecognizer) {
+        
+    }
+    
+    func retweetTapped(gestureRecognizer: UITapGestureRecognizer) {
+        
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func onLogout(sender: AnyObject) {
         User.currentUser?.logout()
+    }
+    
+    func setupRows() {
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 100
     }
     
     func getTweets(refreshControl: UIRefreshControl? = nil) {
@@ -41,11 +57,6 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 refreshControl.endRefreshing()
             }
         }
-    }
-    
-    func setupRows() {
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 100
     }
     
     func addRefreshControl() {
@@ -64,19 +75,8 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TweetCell") as! TweetCell
-        if let tweets = tweets {
-            let tweet = tweets[indexPath.row]
-            cell.fullNameLabel.text = (tweet.user?.name)! as String
-            cell.handleLabel.text = (tweet.user?.screenName)! as String
-            cell.timestampLabel.text = (tweet.timeAgo)! as String
-            cell.tweetTextLabel.text = (tweet.text)! as String
-            cell.retweetCount.text = String(tweet.retweetedCount!) as String
-            cell.heartCount.text = String(tweet.heartedCount!) as String
-            cell.thumbImage.setImageWithURL(NSURL(string: (tweet.user?.profileImageUrl)!)!)
-            cell.replyImage.image = UIImage(named: "reply")
-            cell.retweetImage.image = UIImage(named: "retweet")
-            cell.heartImage.image = UIImage(named: "heart")
-        }
+        cell.tweet = tweets![indexPath.row]
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
         return cell
     }
 

@@ -44,6 +44,8 @@ class ComposeTweetViewController: UIViewController {
         thumbImage.setImageWithURL(NSURL(string: (user?.profileImageUrl)!)!)
         fullNameLabel.text = user?.name
         handleLabel.text = user?.screenName
+        thumbImage.layer.cornerRadius = 3
+        thumbImage.clipsToBounds = true
         if let inResponseTo = tweetReplyUsername {
             tweetTextLabel.text = "@\(inResponseTo)"
         }
