@@ -20,6 +20,7 @@
 		5C7DC8DB1C7AA1920075B22C /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7DC8DA1C7AA1920075B22C /* DetailsViewController.swift */; };
 		5C7DC8DD1C7AA1C70075B22C /* ComposeTweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7DC8DC1C7AA1C70075B22C /* ComposeTweetViewController.swift */; };
 		5CBA69951C7A727300706888 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBA69941C7A727300706888 /* TweetCell.swift */; };
+		5CC8EC081C82527B006882A7 /* HamburgerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC8EC071C82527B006882A7 /* HamburgerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		5C7DC8DA1C7AA1920075B22C /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		5C7DC8DC1C7AA1C70075B22C /* ComposeTweetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeTweetViewController.swift; sourceTree = "<group>"; };
 		5CBA69941C7A727300706888 /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
+		5CC8EC071C82527B006882A7 /* HamburgerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerViewController.swift; sourceTree = "<group>"; };
 		6B9F35E33C0BEDAD777F0165 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9CF2ED61BE615D7C782BC3F5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F3B24361CEE9519490182727 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,18 +86,15 @@
 		5C57A4A71C77F990001B6F68 /* Tweetster */ = {
 			isa = PBXGroup;
 			children = (
+				5CC8EC061C825244006882A7 /* View Controllers */,
 				5CBA69911C7A721D00706888 /* View */,
 				5C5B1F931C78296E007DA842 /* Models */,
 				5C57A4BA1C7812A8001B6F68 /* API */,
 				5C57A4A81C77F990001B6F68 /* AppDelegate.swift */,
-				5C57A4AA1C77F990001B6F68 /* ViewController.swift */,
 				5C57A4AC1C77F990001B6F68 /* Main.storyboard */,
 				5C57A4AF1C77F990001B6F68 /* Assets.xcassets */,
 				5C57A4B11C77F990001B6F68 /* LaunchScreen.storyboard */,
 				5C57A4B41C77F990001B6F68 /* Info.plist */,
-				5C5B1F981C783C95007DA842 /* TweetsViewController.swift */,
-				5C7DC8DA1C7AA1920075B22C /* DetailsViewController.swift */,
-				5C7DC8DC1C7AA1C70075B22C /* ComposeTweetViewController.swift */,
 			);
 			path = Tweetster;
 			sourceTree = "<group>";
@@ -123,6 +122,18 @@
 				5CBA69941C7A727300706888 /* TweetCell.swift */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		5CC8EC061C825244006882A7 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5C57A4AA1C77F990001B6F68 /* ViewController.swift */,
+				5C5B1F981C783C95007DA842 /* TweetsViewController.swift */,
+				5C7DC8DA1C7AA1920075B22C /* DetailsViewController.swift */,
+				5C7DC8DC1C7AA1C70075B22C /* ComposeTweetViewController.swift */,
+				5CC8EC071C82527B006882A7 /* HamburgerViewController.swift */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 		67826F98CA8BEDECB913B4E9 /* Frameworks */ = {
@@ -263,6 +274,7 @@
 				5C5B1F991C783C95007DA842 /* TweetsViewController.swift in Sources */,
 				5C57A4AB1C77F990001B6F68 /* ViewController.swift in Sources */,
 				5C5B1F921C7813ED007DA842 /* TwitterClient.swift in Sources */,
+				5CC8EC081C82527B006882A7 /* HamburgerViewController.swift in Sources */,
 				5C57A4A91C77F990001B6F68 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
