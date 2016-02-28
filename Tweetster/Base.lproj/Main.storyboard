@@ -176,7 +176,7 @@
                                             <outlet property="thumbImage" destination="Ghc-01-YtC" id="6tX-wE-Xms"/>
                                             <outlet property="timestampLabel" destination="RQf-X8-Jtb" id="SZX-iN-1Ck"/>
                                             <outlet property="tweetTextLabel" destination="mDp-Qm-1bk" id="4hm-4r-SaP"/>
-                                            <segue destination="rB2-gb-Lys" kind="push" identifier="TweetDetail" id="wlh-QW-i6Z"/>
+                                            <segue destination="LkA-AK-dDS" kind="push" id="BQp-h7-vzA"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -201,7 +201,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="New"/>
                                 <connections>
-                                    <segue destination="Zxv-mc-675" kind="push" id="Ubn-HA-xSm"/>
+                                    <segue destination="7sa-lM-hi9" kind="push" id="2JL-uK-n2w"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -212,7 +212,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pDH-W7-gIp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1094" y="403"/>
+            <point key="canvasLocation" x="1556" y="417"/>
         </scene>
         <!--DetailsViewController-->
         <scene sceneID="vmz-xQ-zgj">
@@ -402,7 +402,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nmd-K4-RbF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="228" y="-232"/>
+            <point key="canvasLocation" x="1092" y="-904"/>
         </scene>
         <!--Hamburger View Controller-->
         <scene sceneID="IPn-cE-6rc">
@@ -454,7 +454,26 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="622" y="-232"/>
+            <point key="canvasLocation" x="1556" y="-904"/>
+        </scene>
+        <!--ProfileViewController-->
+        <scene sceneID="jhe-19-BCK">
+            <objects>
+                <viewController storyboardIdentifier="ProfileViewController" title="ProfileViewController" id="Hxc-1g-ekb" customClass="ProfileViewController" customModule="Tweetster" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NJZ-ae-Loz"/>
+                        <viewControllerLayoutGuide type="bottom" id="R69-lg-3WE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oqv-nQ-d9z">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="UaS-Ov-jpO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mcG-wE-3SY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1556" y="-232"/>
         </scene>
         <!--ComposeTweetViewController-->
         <scene sceneID="lbZ-MO-RDZ">
@@ -541,7 +560,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zwJ-Jn-4a1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2198" y="43"/>
+            <point key="canvasLocation" x="2192" y="91"/>
         </scene>
         <!--Timeline Navigation Controller-->
         <scene sceneID="8Bh-G6-XLI">
@@ -559,45 +578,25 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="622" y="423"/>
+            <point key="canvasLocation" x="1092" y="423"/>
         </scene>
-        <!--Compose Tweet Navigation Controller-->
-        <scene sceneID="E3c-Hs-JRm">
+        <!--Navigation Controller-->
+        <scene sceneID="VK1-D1-7LA">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Zxv-mc-675" customClass="ComposeTweetNavigationController" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eHd-hL-Dp1" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="bLX-Le-p4U"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vTt-3k-I72">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JqO-2b-xpK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="7sa-lM-hi9" kind="relationship" relationship="rootViewController" id="Oqp-Ut-HE7"/>
+                        <segue destination="Hxc-1g-ekb" kind="relationship" relationship="rootViewController" id="mG8-pB-xsb"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="G7w-WM-90Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BgP-ht-TcM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1666" y="43"/>
-        </scene>
-        <!--Details Tweet Navigation Controller-->
-        <scene sceneID="BiM-0d-3L8">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rB2-gb-Lys" customClass="DetailsTweetNavigationController" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="v0r-bX-ZZq"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oec-5d-C3c">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="LkA-AK-dDS" kind="relationship" relationship="rootViewController" id="A9E-nO-I7S"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3QF-hO-zch" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1660" y="805"/>
+            <point key="canvasLocation" x="1092" y="-232"/>
         </scene>
     </scenes>
 </document>
