@@ -12,6 +12,27 @@ class HamburgerViewController: UIViewController {
 
     @IBOutlet weak var menuView: UIView!
     @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var leftMarginConstraint: NSLayoutConstraint!
+    var originalLeftMargin: CGFloat!
+    
+    var menuViewController: UIViewController! {
+        didSet {
+            view.layoutIfNeeded()
+            menuView.addSubview(menuViewController.view)
+            
+            UIView.animateWithDuration(0.3) { () -> Void in
+                self.leftMarginConstraint.constant = 0
+                self.view.layoutIfNeeded()
+            }
+        }
+    }
+    var contentViewController: UIViewController! {
+        didSet {
+            view.layoutIfNeeded()
+            
+            contentView.addSubview(contentViewController.view)
+        }
+    }
     
     
     override func viewDidLoad() {
@@ -24,7 +45,26 @@ class HamburgerViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
+    @IBAction func onPanGesture(sender: AnyObject) {
+        let translation = sender.translationInView(view)
+        let velocity = sender.velocityInView(view)
+        
+        if sender.state == UIGestureRecognizerState.Began {
+            originalLeftMargin = leftMarginConstraint.constant
+        } else if sender.state == UIGestureRecognizerState.Changed {
+            leftMarginConstraint.constant = originalLeftMargin + translation.x
+        } else if sender.state == UIGestureRecognizerState.Ended {
+            UIView.animateWithDuration(0.3, animations: { () -> Void in
+                if velocity.x > 0 {
+                    self.leftMarginConstraint.constant = self.view.frame.size.width - 50
+                } else {
+                    self.leftMarginConstraint.constant = 0
+                }
+                self.view.layoutIfNeeded()
+            })
+        }
+    }
 
     /*
     // MARK: - Navigation

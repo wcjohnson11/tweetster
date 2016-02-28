@@ -22,8 +22,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if User.currentUser != nil {
             // go to logged in screen
             print("User persisted \(User.currentUser!.name)")
-            let vc = storyboard.instantiateViewControllerWithIdentifier("NavigationViewController") as UIViewController
-            window?.rootViewController = vc
+//            let hamburgerViewController = window!.rootViewController as?HamburgerViewController
+//            
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            let menuViewController = storyboard.instantiateViewControllerWithIdentifier("MenuViewController")
+            let hamburgerViewController = storyboard.instantiateViewControllerWithIdentifier("HamburgerViewController") as! HamburgerViewController
+            window?.rootViewController = hamburgerViewController
+            let menuViewController = storyboard.instantiateViewControllerWithIdentifier("MenuViewController") as! MenuViewController
+            
+            menuViewController.hamburgerViewController = hamburgerViewController
+            
+            hamburgerViewController.menuViewController = menuViewController
         }
         return true
     }
