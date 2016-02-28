@@ -17,7 +17,7 @@ class MenuViewController: UIViewController,UITableViewDataSource, UITableViewDel
     private var tweetsViewController: UIViewController!
     private var composeTweetViewController: UIViewController!
     
-    var viewControllers: [UIViewController] = []
+    var viewControllers: [UINavigationController] = []
     var options = ["Timeline", "Compose a tweet"]
     
     override func viewDidLoad() {
@@ -31,11 +31,16 @@ class MenuViewController: UIViewController,UITableViewDataSource, UITableViewDel
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         tweetsViewController = storyboard.instantiateViewControllerWithIdentifier("TweetsViewController")
         composeTweetViewController = storyboard.instantiateViewControllerWithIdentifier("ComposeTweetViewController")
+            let timelineNavController = UINavigationController(rootViewController: tweetsViewController)
+        let composeTweetNavController = UINavigationController(rootViewController: composeTweetViewController)
+            viewControllers.append(timelineNavController)
+        viewControllers.append(composeTweetNavController)
+
         
-        viewControllers.append(tweetsViewController)
-        viewControllers.append(composeTweetViewController)
+//        viewControllers.append(tweetsViewController)
+//        viewControllers.append(composeTweetViewController)
         
-        hamburgerViewController.contentViewController = tweetsViewController
+        hamburgerViewController.contentViewController = timelineNavController
     }
 
     override func didReceiveMemoryWarning() {

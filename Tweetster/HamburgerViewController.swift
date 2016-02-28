@@ -20,10 +20,6 @@ class HamburgerViewController: UIViewController {
             view.layoutIfNeeded()
             menuView.addSubview(menuViewController.view)
             
-            UIView.animateWithDuration(0.3) { () -> Void in
-                self.leftMarginConstraint.constant = 0
-                self.view.layoutIfNeeded()
-            }
         }
     }
     var contentViewController: UIViewController! {
@@ -31,6 +27,11 @@ class HamburgerViewController: UIViewController {
             view.layoutIfNeeded()
             
             contentView.addSubview(contentViewController.view)
+            UIView.animateWithDuration(0.3) { () -> Void in
+                self.leftMarginConstraint.constant = 0
+                self.view.layoutIfNeeded()
+            }
+
         }
     }
     
