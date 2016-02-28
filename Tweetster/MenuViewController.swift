@@ -32,8 +32,8 @@ class MenuViewController: UIViewController,UITableViewDataSource, UITableViewDel
         tweetsViewController = storyboard.instantiateViewControllerWithIdentifier("TweetsViewController")
         composeTweetViewController = storyboard.instantiateViewControllerWithIdentifier("ComposeTweetViewController")
         
-        viewControllers.append(composeTweetViewController)
         viewControllers.append(tweetsViewController)
+        viewControllers.append(composeTweetViewController)
         
         hamburgerViewController.contentViewController = tweetsViewController
     }
@@ -53,7 +53,7 @@ class MenuViewController: UIViewController,UITableViewDataSource, UITableViewDel
         return cell
     }
     
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print(indexPath.row)
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         hamburgerViewController.contentViewController = viewControllers[indexPath.row]
