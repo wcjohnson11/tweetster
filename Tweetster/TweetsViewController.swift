@@ -8,11 +8,12 @@
 
 import UIKit
 
-class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, TweetCellDelegate {
     @IBOutlet weak var tableView: UITableView!
     
     var tweets: [Tweet]?
     var refreshControl: UIRefreshControl?
+    var endpoint: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,12 +51,24 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func getTweets(refreshControl: UIRefreshControl? = nil) {
-        TwitterClient.sharedInstance.homeTimelineWithParams(nil) { (tweets, error) -> () in
-            self.tweets = tweets
-            self.tableView.reloadData()
-            if let refreshControl = refreshControl {
-                refreshControl.endRefreshing()
+        if (endpoint != "mentions") {
+            TwitterClient.sharedInstance.homeTimelineWithParams(nil) { (tweets, error) -> () in
+                self.tweets = tweets
+                self.tableView.reloadData()
+                if let refreshControl = refreshControl {
+                    refreshControl.endRefreshing()
+                }
             }
+
+        } else {
+            TwitterClient.sharedInstance.mentionsTimeline(nil, completion: { (tweets, error) -> () in
+                self.tweets = tweets
+                self.tableView.reloadData()
+                if let refreshControl = refreshControl {
+                    refreshControl.endRefreshing()
+                }
+
+            })
         }
     }
     
@@ -77,8 +90,34 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCellWithIdentifier("TweetCell") as! TweetCell
         cell.tweet = tweets![indexPath.row]
         cell.selectionStyle = UITableViewCellSelectionStyle.None
+        cell.delegate = self
         return cell
     }
+    
+    func thumbImageClicked (user: User?) {
+        let currentUser = User.currentUser
+        if user == nil || (currentUser != nil && currentUser!.screenName == user?.screenName) {
+            print(user)
+            return
+        }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let profileVC = storyboard.instantiateViewControllerWithIdentifier("ProfileViewController") as! ProfileViewController
+        profileVC.screenName = user?.screenName
+        profileVC.id = user?.id
+        
+        navigationController?.pushViewController(profileVC, animated: true)
+    }
+    
+    
+//    
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        let detailsViewController = self.storyboard!.instantiateViewControllerWithIdentifier("DetailsViewController") as! DetailsViewController
+//        
+//        let tweet = tweets![indexPath.row]
+//        detailsViewController.tweet = tweet
+//        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+//        self.navigationController?.pushViewController(detailsViewController, animated: true)
+//    }
     /*
     // MARK: - Navigation
 

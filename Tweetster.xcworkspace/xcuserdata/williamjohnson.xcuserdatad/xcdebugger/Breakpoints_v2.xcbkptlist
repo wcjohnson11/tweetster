@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tweetster/User.swift"
-            timestampString = "477640242.225798"
+            timestampString = "478337138.886176"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "logout()"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tweetster/User.swift"
-            timestampString = "477642460.9932"
+            timestampString = "478337138.886176"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "logout()"
             landmarkType = "5">
          </BreakpointContent>
@@ -88,13 +88,123 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tweetster/MenuViewController.swift"
-            timestampString = "478313783.405702"
+            timestampString = "478397044.180653"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Tweetster/User.swift"
+            timestampString = "478329019.007542"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "User"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tweetster.User.dictionary.getter : Swift.Optional&lt;__ObjC.NSDictionary&gt;"
+                  moduleName = "Tweetster"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/williamjohnson/dev/src/github.com/wcjohnson11/tippo/tweetster/Tweetster/User.swift"
+                  timestampString = "478329019.038699"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tweetster.User.dictionary.setter : Swift.Optional&lt;__ObjC.NSDictionary&gt;"
+                  moduleName = "Tweetster"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/williamjohnson/dev/src/github.com/wcjohnson11/tippo/tweetster/Tweetster/User.swift"
+                  timestampString = "478329019.04077"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tweetster.User.init (Tweetster.User.Type)(dictionary : __ObjC.NSDictionary) -&gt; Tweetster.User"
+                  moduleName = "Tweetster"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/williamjohnson/dev/src/github.com/wcjohnson11/tippo/tweetster/Tweetster/User.swift"
+                  timestampString = "478329019.040881"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "359">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tweetster.User.dictionary.materializeForSet : Swift.Optional&lt;__ObjC.NSDictionary&gt;"
+                  moduleName = "Tweetster"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/williamjohnson/dev/src/github.com/wcjohnson11/tippo/tweetster/Tweetster/User.swift"
+                  timestampString = "478329019.040967"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Tweetster/TweetCell.swift"
+            timestampString = "478392185.114244"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "TweetCell"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Tweetster/TweetsViewController.swift"
+            timestampString = "478397044.180653"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "TweetsViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

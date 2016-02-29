@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailsViewController: UIViewController {
+class DetailsViewController: UIViewController{
 
     @IBOutlet weak var thumbImage: UIImageView!
     @IBOutlet weak var fullNameLabel: UILabel!

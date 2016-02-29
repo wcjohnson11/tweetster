@@ -147,4 +147,34 @@ class TwitterClient: BDBOAuth1SessionManager {
                 completion(tweet: nil, error: error)
         })
     }
+    
+    func getTimelineWithParams(params: NSDictionary?, url: String, completion: (tweets: [Tweet]?, error: NSError?) -> ()) {
+        GET(url, parameters: params, progress: { (progress: NSProgress) -> Void in
+            }, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                let tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
+                
+                completion(tweets: tweets, error: nil)
+            }, failure: { (operation: NSURLSessionDataTask?, error) -> Void in
+                completion(tweets: nil, error: error)
+        })
+    }
+    func getUserWithCompletion(params: NSDictionary?, completion: (user: User?, error: NSError?) -> ()) {
+        GET("1.1/users/lookup.json", parameters: params, progress: { (progress: NSProgress) -> Void in
+            }, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                let user = User(dictionary: response![0] as! NSDictionary)
+                completion(user: user, error: nil)
+            }, failure: { (operation: NSURLSessionDataTask?, error) -> Void in
+                completion(user: nil, error: error)
+        })
+    }
+    
+    func mentionsTimeline(params: NSDictionary?, completion: (tweets: [Tweet]?, error: NSError?) -> ()) {
+        GET("1.1/statuses/mentions_timeline.json", parameters: params, success:
+            { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                let tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
+                completion(tweets: tweets, error: nil)
+            }, failure: { (task: NSURLSessionDataTask?, apiError: NSError) -> Void in
+                completion(tweets: nil, error: apiError)
+        })
+    }
 }

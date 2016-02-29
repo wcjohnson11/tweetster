@@ -8,8 +8,13 @@
 
 import UIKit
 
+@objc protocol TweetCellDelegate {
+    optional func thumbImageClicked(user: User?)
+}
+
 class TweetCell: UITableViewCell {
 
+    @IBOutlet weak var profileButton: UIButton!
     @IBOutlet weak var thumbImage: UIImageView!
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var handleLabel: UILabel!
@@ -21,6 +26,7 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var heartImage: UIImageView!
     @IBOutlet weak var heartCount: UILabel!
     
+    weak var delegate: TweetCellDelegate?
     
     var tweet: Tweet! {
         didSet {
@@ -54,6 +60,12 @@ class TweetCell: UITableViewCell {
         
         replyImage.addGestureRecognizer(replyRecognizer)
     }
+    
+//    func thumbImageTapped(sender: UI)
+    @IBAction func onImageTapped(sender: UIButton) {
+        delegate?.thumbImageClicked?(self.tweet.user)
+    }
+    
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

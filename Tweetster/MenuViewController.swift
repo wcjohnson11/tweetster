@@ -15,10 +15,10 @@ class MenuViewController: UIViewController,UITableViewDataSource, UITableViewDel
     
     var hamburgerViewController: HamburgerViewController!
     private var tweetsViewController: UIViewController!
-    private var composeTweetViewController: UIViewController!
+    private var profileViewController: UIViewController!
     
     var viewControllers: [UINavigationController] = []
-    var options = ["Timeline", "Compose a tweet"]
+    var options = ["Timeline", "Profile", "Mentions"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,15 +30,17 @@ class MenuViewController: UIViewController,UITableViewDataSource, UITableViewDel
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         tweetsViewController = storyboard.instantiateViewControllerWithIdentifier("TweetsViewController")
-        composeTweetViewController = storyboard.instantiateViewControllerWithIdentifier("ComposeTweetViewController")
+        profileViewController = storyboard.instantiateViewControllerWithIdentifier("ProfileViewController")
             let timelineNavController = UINavigationController(rootViewController: tweetsViewController)
-        let composeTweetNavController = UINavigationController(rootViewController: composeTweetViewController)
-            viewControllers.append(timelineNavController)
-        viewControllers.append(composeTweetNavController)
-
+        let profileNavController = UINavigationController(rootViewController: profileViewController)
         
-//        viewControllers.append(tweetsViewController)
-//        viewControllers.append(composeTweetViewController)
+        let mentionsTimeline = storyboard.instantiateViewControllerWithIdentifier("TweetsViewController") as! TweetsViewController
+        mentionsTimeline.endpoint = "mentions"
+        let mentionsNavController = UINavigationController(rootViewController: mentionsTimeline)
+
+        viewControllers.append(timelineNavController)
+        viewControllers.append(profileNavController)
+        viewControllers.append(mentionsNavController)
         
         hamburgerViewController.contentViewController = timelineNavController
     }
@@ -59,7 +61,6 @@ class MenuViewController: UIViewController,UITableViewDataSource, UITableViewDel
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print(indexPath.row)
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         hamburgerViewController.contentViewController = viewControllers[indexPath.row]
     }

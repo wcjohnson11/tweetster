@@ -11,6 +11,8 @@
 		5C2D90431C82633E00615C3E /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2D90421C82633E00615C3E /* MenuViewController.swift */; };
 		5C2D90451C8268E600615C3E /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2D90441C8268E600615C3E /* MenuCell.swift */; };
 		5C45F40F1C827EE400EDAE27 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C45F40E1C827EE400EDAE27 /* ProfileViewController.swift */; };
+		5C45F4111C82980D00EDAE27 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C45F4101C82980D00EDAE27 /* ProfileView.swift */; };
+		5C45F4131C829CBE00EDAE27 /* MentionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C45F4121C829CBE00EDAE27 /* MentionsViewController.swift */; };
 		5C57A4A91C77F990001B6F68 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C57A4A81C77F990001B6F68 /* AppDelegate.swift */; };
 		5C57A4AB1C77F990001B6F68 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C57A4AA1C77F990001B6F68 /* ViewController.swift */; };
 		5C57A4AE1C77F990001B6F68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C57A4AC1C77F990001B6F68 /* Main.storyboard */; };
@@ -30,6 +32,8 @@
 		5C2D90421C82633E00615C3E /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		5C2D90441C8268E600615C3E /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		5C45F40E1C827EE400EDAE27 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		5C45F4101C82980D00EDAE27 /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		5C45F4121C829CBE00EDAE27 /* MentionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentionsViewController.swift; sourceTree = "<group>"; };
 		5C57A4A51C77F990001B6F68 /* Tweetster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tweetster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C57A4A81C77F990001B6F68 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C57A4AA1C77F990001B6F68 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +131,7 @@
 			children = (
 				5CBA69941C7A727300706888 /* TweetCell.swift */,
 				5C2D90441C8268E600615C3E /* MenuCell.swift */,
+				5C45F4101C82980D00EDAE27 /* ProfileView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -141,6 +146,7 @@
 				5CC8EC071C82527B006882A7 /* HamburgerViewController.swift */,
 				5C2D90421C82633E00615C3E /* MenuViewController.swift */,
 				5C45F40E1C827EE400EDAE27 /* ProfileViewController.swift */,
+				5C45F4121C829CBE00EDAE27 /* MentionsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -283,10 +289,12 @@
 				5C2D90431C82633E00615C3E /* MenuViewController.swift in Sources */,
 				5C7DC8DB1C7AA1920075B22C /* DetailsViewController.swift in Sources */,
 				5C5B1F991C783C95007DA842 /* TweetsViewController.swift in Sources */,
+				5C45F4131C829CBE00EDAE27 /* MentionsViewController.swift in Sources */,
 				5C57A4AB1C77F990001B6F68 /* ViewController.swift in Sources */,
 				5C5B1F921C7813ED007DA842 /* TwitterClient.swift in Sources */,
 				5C45F40F1C827EE400EDAE27 /* ProfileViewController.swift in Sources */,
 				5CC8EC081C82527B006882A7 /* HamburgerViewController.swift in Sources */,
+				5C45F4111C82980D00EDAE27 /* ProfileView.swift in Sources */,
 				5C57A4A91C77F990001B6F68 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
